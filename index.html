@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chemical Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Chemical Tracker</h1>
+    <p>Minimalist Chemical Management App</p>
+  </header>
+
+  <main>
+    <!-- Tambah Bahan -->
+    <section class="card">
+      <h2>Tambah Bahan Kimia</h2>
+      <form id="addForm">
+        <input type="text" id="nama" placeholder="Nama Bahan" required>
+        <input type="text" id="idPengguna" placeholder="ID Pengguna" required>
+        <input type="text" id="noCatalog" placeholder="Nomor Katalog" required>
+        <input type="text" id="lotNumber" placeholder="Lot Number" required>
+        <input type="text" id="keperluan" placeholder="Keperluan">
+        <input type="text" id="klasifikasi" placeholder="Klasifikasi Bahaya">
+        <input type="number" id="jumlah" placeholder="Jumlah" required>
+        <select id="satuan">
+          <option value="gram">gram</option>
+          <option value="mL">mL</option>
+        </select>
+        <textarea id="catatan" placeholder="Catatan"></textarea>
+        <button type="submit">Tambah</button>
+      </form>
+    </section>
+
+    <!-- Pakai Bahan -->
+    <section class="card">
+      <h2>Gunakan Bahan Kimia</h2>
+      <form id="useForm">
+        <select id="bahanSelect" required></select>
+        <input type="text" id="idPenggunaUse" placeholder="ID Pengguna" required>
+        <input type="number" id="jumlahUse" placeholder="Jumlah" required>
+        <select id="satuanUse">
+          <option value="gram">gram</option>
+          <option value="mL">mL</option>
+        </select>
+        <input type="date" id="tanggalUse" required>
+        <button type="submit">Gunakan</button>
+      </form>
+    </section>
+
+    <!-- Ringkasan -->
+    <section class="card">
+      <h2>Ringkasan Stok</h2>
+      <table id="rekapTable">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>ID</th>
+            <th>No. Katalog</th>
+            <th>Lot</th>
+            <th>Keperluan</th>
+            <th>Klasifikasi</th>
+            <th>Jumlah</th>
+            <th>Satuan</th>
+            <th>Catatan</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="exportCSV">Export CSV</button>
+    </section>
+
+    <!-- Grafik -->
+    <section class="card">
+      <h2>Grafik Stok</h2>
+      <canvas id="stockChart"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Chemical Tracker – Minimalist UI</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
