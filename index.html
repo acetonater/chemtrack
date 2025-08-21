@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Rekapitulasi Bahan Kimia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Sistem Rekapitulasi Bahan Kimia</h1>
+
+    <!-- Form Input -->
+    <section class="form-section">
+      <h2>➕ Tambah / Gunakan Bahan Kimia</h2>
+      <form id="chemicalForm">
+        <label>ID Pengguna:</label>
+        <input type="text" id="userId" required>
+
+        <label>Nama Bahan:</label>
+        <input type="text" id="name" required>
+
+        <label>Nomor Katalog:</label>
+        <input type="text" id="catalog" required>
+
+        <label>Lot Number:</label>
+        <input type="text" id="lot" required>
+
+        <label>Jumlah (gram/ml):</label>
+        <input type="number" id="amount" required>
+
+        <label>Kategori:</label>
+        <select id="type" required>
+          <option value="Penambahan">Penambahan</option>
+          <option value="Penggunaan">Penggunaan</option>
+        </select>
+
+        <label>Keperluan:</label>
+        <input type="text" id="purpose">
+
+        <label>Klasifikasi Bahaya:</label>
+        <select id="hazard">
+          <option value="Tidak Ada">Tidak Ada</option>
+          <option value="Iritan">Iritan</option>
+          <option value="Korosif">Korosif</option>
+          <option value="Toksik">Toksik</option>
+          <option value="Mudah Terbakar">Mudah Terbakar</option>
+          <option value="Karsinogenik">Karsinogenik</option>
+        </select>
+
+        <label>Catatan:</label>
+        <textarea id="note"></textarea>
+
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
+
+    <!-- Ringkasan Cepat -->
+    <section class="rekap-section">
+      <h2>⚡ Ringkasan Cepat</h2>
+      <p>Total Transaksi: <span id="totalTransaksi">0</span></p>
+      <p>Jumlah Bahan Unik: <span id="totalBahan">0</span></p>
+    </section>
+
+    <!-- Rekapitulasi Transaksi -->
+    <section class="rekap-section">
+      <h2>📑 Rekapitulasi Transaksi</h2>
+      <button onclick="exportCSV()">⬇️ Export ke CSV</button>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>ID Pengguna</th>
+            <th>Nama Bahan</th>
+            <th>Katalog</th>
+            <th>Lot</th>
+            <th>Jumlah</th>
+            <th>Kategori</th>
+            <th>Keperluan</th>
+            <th>Klasifikasi Bahaya</th>
+            <th>Catatan</th>
+            <th>Tanggal</th>
+          </tr>
+        </thead>
+        <tbody id="rekapTable"></tbody>
+      </table>
+    </section>
+
+    <!-- Rekapitulasi Stok -->
+    <section class="rekap-section">
+      <h2>📦 Stok Bahan Kimia</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Bahan</th>
+            <th>Katalog</th>
+            <th>Lot</th>
+            <th>Stok Akhir</th>
+          </tr>
+        </thead>
+        <tbody id="stokTable"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
